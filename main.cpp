@@ -50,9 +50,13 @@ private:
 };
 
 
-int main()
+int main(int argc, char** argv)
 {
-    std::string path = "/home/ilian";
+    if (argc != 2) {
+        std::cout << "Usage: " << argv[0] << " <path to list > \r\n";
+        exit(-1);
+    }
+    std::string path = argv[1];
     std::vector<std::string> folders;
     std::vector<ProcessOpen> cmd_exec;
     std::vector<std::thread> workers;
